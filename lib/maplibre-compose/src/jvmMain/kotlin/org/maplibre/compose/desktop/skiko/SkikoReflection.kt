@@ -207,7 +207,7 @@ internal data class SkikoDirect3DDevice(val ptr: Long)
  */
 internal object SkikoDirect3DDeviceLayout {
   /** The Skiko version whose sources these offsets were read from. */
-  const val VERIFIED_SKIKO_VERSION: String = "0.144.6"
+  const val VERIFIED_SKIKO_VERSION: String = "0.150.1"
 
   /** `DirectXDevice::backendContext::fDevice`. */
   const val BACKEND_CONTEXT_DEVICE_OFFSET: Long = 16L

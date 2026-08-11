@@ -24,7 +24,12 @@ kotlin {
 
   jvm { compilerOptions { jvmTarget = project.getDesktopJvmTarget() } }
 
-  js { browser() }
+  js {
+    // Compose UI browser tests need an executable binary so webpack can load the Skiko runtime
+    // (CMP-4906).
+    binaries.executable()
+    browser()
+  }
 
   applyDefaultHierarchyTemplate()
 
