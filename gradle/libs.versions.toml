@@ -1,6 +1,6 @@
 [versions]
 # Platform floors and toolchain levels.
-android-compileSdk = "36"
+android-compileSdk = "37"
 android-minSdk = "23"
 android-targetSdk = "36"
 # Compiler JDK for every JVM compilation. Must be >= java-desktopTarget.
@@ -48,7 +48,7 @@ jetbrains-navigation = "2.10.0-alpha02"
 # Also note the Gradle and XCode versions in the matrix!
 # https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html
 gradle-kotlin = "2.4.10"
-gradle-android = "9.1.0"
+gradle-android = "9.2.1"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
