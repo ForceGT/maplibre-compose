@@ -23,7 +23,7 @@ kotlin-wrappers = "2026.8.0"
 kotlinx-coroutines = "1.11.0"
 kotlinx-io = "0.9.1"
 ktor = "3.5.2"
-lifecycleRuntimeCompose = "2.10.0"
+lifecycleRuntimeCompose = "2.11.0"
 lwjgl = "3.4.2"
 maplibre-android-sdk = "13.0.2"
 maplibre-ios = "6.25.1"
@@ -39,10 +39,10 @@ gradle-spmForKmp = "1.9.4"
 
 # Libraries coupled to Compose: keep Compose up to date and set others accordingly.
 # https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compatibility-and-versioning.html#jetpack-compose-artifacts-used
-gradle-compose = "1.11.1"
-androidx-compose = "1.11.2"
-jetbrains-compose-material3 = "1.11.0-alpha07"
-jetbrains-navigation = "2.9.2"
+gradle-compose = "1.12.0-rc01"
+androidx-compose = "1.12.0-rc01"
+jetbrains-compose-material3 = "1.12.0-alpha03"
+jetbrains-navigation = "2.10.0-alpha02"
 
 # Android and Kotlin: Keep Kotlin up to date and set Android accordingly.
 # Also note the Gradle and XCode versions in the matrix!
