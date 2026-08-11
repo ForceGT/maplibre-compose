@@ -101,23 +101,6 @@ kotlin {
 The [setup guide][gradle-spm] covers the Kotlin Gradle plugin version and the
 first-time Xcode linkage step.
 
-<Aside type="caution">
-  In Xcode, ensure your Kotlin/Compose framework is linked before
-  `MapLibre.framework`. Select your iOS app target, open **Build Settings**,
-  search for **Other Linker Flags**, and order the flags like this:
-
-  ```text
-  -framework ComposeApp
-  -framework MapLibre
-  ```
-
-  Replace `ComposeApp` with your Kotlin framework name. The opposite order can
-  cause broken Compose text rendering on iOS because both Compose and MapLibre
-  include HarfBuzz symbols.
-
-  See [CMP-8882](https://youtrack.jetbrains.com/issue/CMP-8882/)
-</Aside>
-
 ## Revert to OpenGL on Android (Optional)
 
 <Aside type="caution">

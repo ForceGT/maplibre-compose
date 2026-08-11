@@ -1,17 +1,5 @@
 package org.maplibre.compose.sources
 
-import MapLibre.MLNFeatureProtocol
-import MapLibre.MLNShapeSource
-import MapLibre.MLNShapeSourceOptionBuffer
-import MapLibre.MLNShapeSourceOptionClusterMinPoints
-import MapLibre.MLNShapeSourceOptionClusterProperties
-import MapLibre.MLNShapeSourceOptionClusterRadius
-import MapLibre.MLNShapeSourceOptionClustered
-import MapLibre.MLNShapeSourceOptionLineDistanceMetrics
-import MapLibre.MLNShapeSourceOptionMaximumZoomLevel
-import MapLibre.MLNShapeSourceOptionMaximumZoomLevelForClustering
-import MapLibre.MLNShapeSourceOptionMinimumZoomLevel
-import MapLibre.MLNShapeSourceOptionSimplificationTolerance
 import kotlinx.serialization.json.JsonObject
 import org.maplibre.compose.expressions.ast.ExpressionContext
 import org.maplibre.compose.util.toFeature
@@ -22,6 +10,19 @@ import org.maplibre.spatialk.geojson.Feature
 import org.maplibre.spatialk.geojson.FeatureCollection
 import platform.Foundation.NSNumber
 import platform.Foundation.NSURL
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNFeatureProtocol
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSource
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionBuffer
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionClusterMinPoints
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionClusterProperties
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionClusterRadius
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionClustered
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionLineDistanceMetrics
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionMaximumZoomLevel
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionMaximumZoomLevelForClustering
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionMinimumZoomLevel
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionSimplificationTolerance
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionSynchronousUpdate
 
 public actual class GeoJsonSource : Source {
   override val impl: MLNShapeSource
@@ -67,6 +68,7 @@ public actual class GeoJsonSource : Source {
       put(MLNShapeSourceOptionMaximumZoomLevelForClustering, NSNumber(options.clusterMaxZoom))
       put(MLNShapeSourceOptionClusterRadius, NSNumber(options.clusterRadius))
       put(MLNShapeSourceOptionClusterMinPoints, NSNumber(options.clusterMinPoints))
+      put(MLNShapeSourceOptionSynchronousUpdate, NSNumber(options.synchronousUpdate))
       put(
         MLNShapeSourceOptionClusterProperties,
         options.clusterProperties.mapValues { (name, aggregator) ->
@@ -76,9 +78,6 @@ public actual class GeoJsonSource : Source {
           )
         },
       )
-
-      // synchronousUpdate is blocked upstream by
-      // https://youtrack.jetbrains.com/issue/CMP-8882/ (see #738)
     }
 
   public actual fun setData(data: GeoJsonData) {

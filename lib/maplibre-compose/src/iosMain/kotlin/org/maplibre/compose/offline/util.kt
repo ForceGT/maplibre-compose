@@ -1,15 +1,5 @@
 package org.maplibre.compose.offline
 
-import MapLibre.MLNOfflinePackProgress
-import MapLibre.MLNOfflinePackStateActive
-import MapLibre.MLNOfflinePackStateComplete
-import MapLibre.MLNOfflinePackStateInactive
-import MapLibre.MLNOfflinePackStateInvalid
-import MapLibre.MLNOfflinePackStateUnknown
-import MapLibre.MLNOfflineRegionProtocol
-import MapLibre.MLNShape
-import MapLibre.MLNShapeOfflineRegion
-import MapLibre.MLNTilePyramidOfflineRegion
 import org.maplibre.compose.util.toBoundingBox
 import org.maplibre.compose.util.toByteArray
 import org.maplibre.compose.util.toMLNCoordinateBounds
@@ -20,6 +10,16 @@ import platform.Foundation.NSError
 import platform.Foundation.NSURL
 import platform.Foundation.NSUTF8StringEncoding
 import platform.posix.UINT64_MAX
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackProgress
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateActive
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateComplete
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateInactive
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateInvalid
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateUnknown
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflineRegionProtocol
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShape
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeOfflineRegion
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTilePyramidOfflineRegion
 
 internal fun NSError.toOfflineManagerException() =
   OfflineManagerException(message = localizedDescription)

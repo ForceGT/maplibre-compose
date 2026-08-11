@@ -1,14 +1,5 @@
 package org.maplibre.compose.sources
 
-import MapLibre.MLNFeatureProtocol
-import MapLibre.MLNTileCoordinateSystemTMS
-import MapLibre.MLNTileCoordinateSystemXYZ
-import MapLibre.MLNTileSourceOptionAttributionHTMLString
-import MapLibre.MLNTileSourceOptionCoordinateBounds
-import MapLibre.MLNTileSourceOptionMaximumZoomLevel
-import MapLibre.MLNTileSourceOptionMinimumZoomLevel
-import MapLibre.MLNTileSourceOptionTileCoordinateSystem
-import MapLibre.MLNVectorTileSource
 import kotlinx.serialization.json.JsonObject
 import org.maplibre.compose.expressions.ast.Expression
 import org.maplibre.compose.expressions.ast.ExpressionContext
@@ -20,6 +11,15 @@ import org.maplibre.compose.util.toNSPredicate
 import org.maplibre.spatialk.geojson.Feature
 import org.maplibre.spatialk.geojson.Geometry
 import platform.Foundation.NSURL
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNFeatureProtocol
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileCoordinateSystemTMS
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileCoordinateSystemXYZ
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionAttributionHTMLString
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionCoordinateBounds
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionMaximumZoomLevel
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionMinimumZoomLevel
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionTileCoordinateSystem
+import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNVectorTileSource
 
 public actual class VectorSource : Source {
   override val impl: MLNVectorTileSource

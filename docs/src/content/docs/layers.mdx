@@ -28,9 +28,10 @@ style, but you can also declare new sources:
 <Code code={inside("MaplibreMap {", region(layers, "amtrak-1"))} lang="kotlin" />
 
 For small, frequently updated in-memory GeoJSON sources, you can opt into
-synchronous updates. This currently has an effect only on Android; other
-platforms ignore the option for now. Under the hood, this maps to MapLibre
-Native Android's [GeoJsonOptions.withSynchronousUpdate()][android-sync-update]:
+synchronous updates on Android and iOS. Web and Desktop ignore the option for
+now. Under the hood, this maps to MapLibre Native's synchronous GeoJSON update
+APIs such as Android's
+[GeoJsonOptions.withSynchronousUpdate()][android-sync-update]:
 
 <Code code={inside("MaplibreMap {", region(layers, "synchronous-geojson-updates"))} lang="kotlin" />
 
