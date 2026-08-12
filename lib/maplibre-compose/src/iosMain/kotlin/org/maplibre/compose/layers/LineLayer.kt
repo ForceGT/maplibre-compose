@@ -15,7 +15,7 @@ import org.maplibre.compose.expressions.value.VectorValue
 import org.maplibre.compose.sources.Source
 import org.maplibre.compose.util.toNSExpression
 import org.maplibre.compose.util.toNSPredicate
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNLineStyleLayer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNLineStyleLayer
 
 internal actual class LineLayer actual constructor(id: String, source: Source) :
   FeatureLayer(source) {

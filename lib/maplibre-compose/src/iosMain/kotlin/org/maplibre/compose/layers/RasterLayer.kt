@@ -6,7 +6,7 @@ import org.maplibre.compose.expressions.value.MillisecondsValue
 import org.maplibre.compose.expressions.value.RasterResampling
 import org.maplibre.compose.sources.Source
 import org.maplibre.compose.util.toNSExpression
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNRasterStyleLayer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNRasterStyleLayer
 
 internal actual class RasterLayer actual constructor(id: String, actual val source: Source) :
   Layer() {

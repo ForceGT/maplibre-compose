@@ -2,15 +2,15 @@ package org.maplibre.compose.sources
 
 import org.maplibre.compose.util.toMLNCoordinateBounds
 import platform.Foundation.NSURL
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNRasterTileSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileCoordinateSystemTMS
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileCoordinateSystemXYZ
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionAttributionHTMLString
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionCoordinateBounds
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionMaximumZoomLevel
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionMinimumZoomLevel
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionTileCoordinateSystem
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTileSourceOptionTileSize
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNRasterTileSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileCoordinateSystemTMS
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileCoordinateSystemXYZ
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionAttributionHTMLString
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionCoordinateBounds
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionMaximumZoomLevel
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionMinimumZoomLevel
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionTileCoordinateSystem
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTileSourceOptionTileSize
 
 public actual class RasterSource : Source {
   override val impl: MLNRasterTileSource

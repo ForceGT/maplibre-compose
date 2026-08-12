@@ -10,16 +10,16 @@ import platform.Foundation.NSError
 import platform.Foundation.NSURL
 import platform.Foundation.NSUTF8StringEncoding
 import platform.posix.UINT64_MAX
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackProgress
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateActive
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateComplete
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateInactive
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateInvalid
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackStateUnknown
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflineRegionProtocol
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShape
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeOfflineRegion
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNTilePyramidOfflineRegion
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackProgress
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackStateActive
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackStateComplete
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackStateInactive
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackStateInvalid
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackStateUnknown
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflineRegionProtocol
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShape
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeOfflineRegion
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNTilePyramidOfflineRegion
 
 internal fun NSError.toOfflineManagerException() =
   OfflineManagerException(message = localizedDescription)

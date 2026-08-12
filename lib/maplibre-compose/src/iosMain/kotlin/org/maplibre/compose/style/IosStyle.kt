@@ -13,15 +13,15 @@ import org.maplibre.compose.sources.UnknownSource
 import org.maplibre.compose.sources.VectorSource
 import org.maplibre.compose.util.ImageResizeOptions
 import org.maplibre.compose.util.toUIImage
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNComputedShapeSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNImageSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNRasterDEMSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNRasterTileSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNStyle
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNStyleLayer
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNVectorTileSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNComputedShapeSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNImageSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNRasterDEMSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNRasterTileSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNStyle
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNStyleLayer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNVectorTileSource
 
 internal class IosStyle(style: MLNStyle, private val getScale: () -> Float) : Style {
   private var impl: MLNStyle = style

@@ -26,7 +26,7 @@ import org.maplibre.compose.util.afterConsuming
 import platform.CoreGraphics.CGRectMake
 import platform.CoreGraphics.CGSizeMake
 import platform.Foundation.NSURL
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNMapView
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNMapView
 
 @Composable
 internal actual fun ComposableMapView(

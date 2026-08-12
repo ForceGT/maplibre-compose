@@ -6,7 +6,7 @@ import org.maplibre.compose.expressions.value.ColorValue
 import org.maplibre.compose.expressions.value.FloatValue
 import org.maplibre.compose.expressions.value.ImageValue
 import org.maplibre.compose.util.toNSExpression
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNBackgroundStyleLayer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNBackgroundStyleLayer
 
 internal actual class BackgroundLayer actual constructor(id: String) : Layer() {
   override val impl = MLNBackgroundStyleLayer(id)

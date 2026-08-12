@@ -7,7 +7,7 @@ import kotlin.coroutines.suspendCoroutine
 import kotlinx.cinterop.useContents
 import org.maplibre.compose.util.toByteArray
 import org.maplibre.compose.util.toNSData
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePack
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePack
 
 public actual class OfflinePack private constructor(internal val impl: MLNOfflinePack) {
   internal companion object {

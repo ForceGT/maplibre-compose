@@ -11,7 +11,7 @@ import org.maplibre.compose.expressions.value.TranslateAnchor
 import org.maplibre.compose.sources.Source
 import org.maplibre.compose.util.toNSExpression
 import org.maplibre.compose.util.toNSPredicate
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNFillStyleLayer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNFillStyleLayer
 
 internal actual class FillLayer actual constructor(id: String, source: Source) :
   FeatureLayer(source) {

@@ -24,13 +24,13 @@ import platform.Foundation.NSNotificationCenter
 import platform.Foundation.addObserver
 import platform.darwin.NSObject
 import platform.darwin.sel_registerName
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePack
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackErrorNotification
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackMaximumMapboxTilesReachedNotification
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackProgressChangedNotification
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackUserInfoKeyError
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflinePackUserInfoKeyMaximumCount
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNOfflineStorage
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePack
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackErrorNotification
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackMaximumMapboxTilesReachedNotification
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackProgressChangedNotification
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackUserInfoKeyError
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflinePackUserInfoKeyMaximumCount
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNOfflineStorage
 
 @Composable
 public actual fun rememberOfflineManager(): OfflineManager = remember { getOfflineManager() }

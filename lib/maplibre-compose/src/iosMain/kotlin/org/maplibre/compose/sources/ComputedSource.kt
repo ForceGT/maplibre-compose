@@ -9,16 +9,16 @@ import org.maplibre.spatialk.geojson.FeatureCollection
 import platform.Foundation.NSNumber
 import platform.darwin.NSObject
 import platform.darwin.NSUInteger
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNComputedShapeSource
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNComputedShapeSourceDataSourceProtocol
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNCoordinateBounds
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShape
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionBuffer
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionClipsCoordinates
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionMaximumZoomLevel
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionMinimumZoomLevel
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionSimplificationTolerance
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShapeSourceOptionWrapsCoordinates
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNComputedShapeSource
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNComputedShapeSourceDataSourceProtocol
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNCoordinateBounds
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShape
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionBuffer
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionClipsCoordinates
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionMaximumZoomLevel
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionMinimumZoomLevel
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionSimplificationTolerance
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShapeSourceOptionWrapsCoordinates
 
 public actual class ComputedSource : Source {
   override val impl: MLNComputedShapeSource

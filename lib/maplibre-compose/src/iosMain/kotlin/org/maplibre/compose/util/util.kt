@@ -55,14 +55,14 @@ import platform.UIKit.UIImageResizingModeStretch
 import platform.UIKit.valueWithCGVector
 import platform.UIKit.valueWithUIEdgeInsets
 import platform.posix.memcpy
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNCoordinateBounds
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNCoordinateBoundsMake
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNCoordinateQuadMake
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNFeatureProtocol
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNPointFeatureCluster
-import swiftPMImport.org.maplibre.compose.maplibre.compose.MLNShape
-import swiftPMImport.org.maplibre.compose.maplibre.compose.expressionWithMLNJSONObject
-import swiftPMImport.org.maplibre.compose.maplibre.compose.predicateWithMLNJSONObject
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNCoordinateBounds
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNCoordinateBoundsMake
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNCoordinateQuadMake
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNFeatureProtocol
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNPointFeatureCluster
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.MLNShape
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.expressionWithMLNJSONObject
+import swiftPMImport.org.maplibre.compose.lib.maplibre.compose.predicateWithMLNJSONObject
 
 internal fun ByteArray.toNSData(): NSData {
   return if (isEmpty()) NSData()
