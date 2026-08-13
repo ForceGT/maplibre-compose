@@ -72,22 +72,30 @@ class BrowserStyleStateTest {
     return { global.fetch = original }
   }
 
-  /** Holds the TileJSON response until the test has observed the source's initial state. */
-  private fun installDeferredTileJson(): Pair<() -> Unit, () -> Unit> {
+  /**
+   * Holds the TileJSON response until the test has observed the source's initial state.
+   *
+   * MapLibre GL JS 5.24 awaits `transformRequest` before `fetch`, even when that transform is
+   * synchronous, so the request is not issued in the same turn as `addSource`.
+   */
+  private fun installDeferredTileJson(): DeferredTileJson {
     val global = js("window")
     val original = global.fetch
+    var requested = false
     var resolveTileJson: ((dynamic) -> Unit)? = null
     global.fetch = { input: dynamic, init: dynamic ->
       val url = if (jsTypeOf(input) == "string") input as String else input.url as String
       if (url.contains("tilejson.test")) {
+        requested = true
         Promise<dynamic> { resolve, _ -> resolveTileJson = resolve }
       } else {
         original.call(global, input, init)
       }
     }
-    return Pair(
-      { global.fetch = original },
-      {
+    return DeferredTileJson(
+      restore = { global.fetch = original },
+      requested = { requested },
+      resolve = {
         checkNotNull(resolveTileJson) { "MapLibre has not requested the TileJSON" }
           .invoke(makeJsonResponse(TILE_JSON))
       },
@@ -157,7 +165,7 @@ class BrowserStyleStateTest {
   @Test
   fun a_source_added_after_load_reports_late_tilejson_attribution(): Promise<*> =
     runBrowserMapTest {
-      val (restoreFetch, resolveTileJson) = installDeferredTileJson()
+      val deferred = installDeferredTileJson()
       try {
         var node: StyleNode? = null
         var state: StyleState? = null
@@ -186,14 +194,15 @@ class BrowserStyleStateTest {
         assertEquals(listOf(""), state?.sources?.values?.map { it.attributionHtml })
         val initialSource = state?.sources?.values?.single()
 
-        resolveTileJson()
+        waitUntilMap("MapLibre to request the TileJSON") { deferred.requested() }
+        deferred.resolve()
         waitUntilMap("the late source's attribution") {
           state?.sources?.values?.map { it.attributionHtml } == listOf("fetched attribution")
         }
         assertNotSame(initialSource, state?.sources?.values?.single())
         assertEquals(1, loads, "source metadata must not report another map load")
       } finally {
-        restoreFetch()
+        deferred.restore()
       }
     }
 
@@ -230,6 +239,12 @@ class BrowserStyleStateTest {
       "No source should ever report an empty attribution across a style switch. Observed: $observed",
     )
   }
+
+  private class DeferredTileJson(
+    val restore: () -> Unit,
+    val requested: () -> Boolean,
+    val resolve: () -> Unit,
+  )
 
   private companion object {
     const val TILE_JSON =
