@@ -75,6 +75,27 @@ public actual class GeoJsonSource : Source {
       .toFeatureCollection()
   }
 
+  public actual fun setFeatureState(featureId: String, state: JsonObject) {
+    mutate { map -> map.setFeatureState(featureIdentifier(featureId), state.toJsState()) }
+  }
+
+  public actual fun getFeatureState(featureId: String): JsonObject =
+    binding?.withMap { map ->
+      map.getFeatureState(featureIdentifier(featureId)).toJsonObjectOrEmpty()
+    } ?: JsonObject(emptyMap())
+
+  public actual fun removeFeatureState(featureId: String, stateKey: String?) {
+    mutate { map ->
+      val ident = featureIdentifier(featureId)
+      if (stateKey == null) map.removeFeatureState(ident)
+      else map.removeFeatureState(ident, stateKey)
+    }
+  }
+
+  public actual fun resetFeatureStates() {
+    mutate { map -> map.removeFeatureState(featureIdentifier()) }
+  }
+
   private class ClusterQuery(val source: GlJsGeoJsonSource, val clusterId: Double)
 
   /** Null when the feature is not a cluster or the style has unloaded. */

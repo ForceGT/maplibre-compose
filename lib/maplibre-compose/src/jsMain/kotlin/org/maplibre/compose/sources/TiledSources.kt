@@ -65,6 +65,33 @@ public actual class VectorSource : Source {
       }
       .orEmpty()
   }
+
+  public actual fun setFeatureState(sourceLayerId: String, featureId: String, state: JsonObject) {
+    mutate { map ->
+      map.setFeatureState(featureIdentifier(featureId, sourceLayerId), state.toJsState())
+    }
+  }
+
+  public actual fun getFeatureState(sourceLayerId: String, featureId: String): JsonObject =
+    binding?.withMap { map ->
+      map.getFeatureState(featureIdentifier(featureId, sourceLayerId)).toJsonObjectOrEmpty()
+    } ?: JsonObject(emptyMap())
+
+  public actual fun removeFeatureState(
+    sourceLayerId: String,
+    featureId: String,
+    stateKey: String?,
+  ) {
+    mutate { map ->
+      val ident = featureIdentifier(featureId, sourceLayerId)
+      if (stateKey == null) map.removeFeatureState(ident)
+      else map.removeFeatureState(ident, stateKey)
+    }
+  }
+
+  public actual fun resetFeatureStates(sourceLayerId: String) {
+    mutate { map -> map.removeFeatureState(featureIdentifier(sourceLayerId = sourceLayerId)) }
+  }
 }
 
 public actual class RasterSource : Source {
