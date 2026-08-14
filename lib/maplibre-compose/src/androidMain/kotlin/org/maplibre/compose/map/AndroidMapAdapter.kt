@@ -92,9 +92,6 @@ internal class AndroidMapAdapter(
     }
 
   private var lastBaseStyle: BaseStyle? = null
-
-  // Coalesces overlapping native style loads — a second load starting before the first
-  // settles can throw IllegalStateException("invalid native peer") (#244, iOS: #835).
   private var styleLoadInFlight: BaseStyle? = null
   private var pendingBaseStyle: BaseStyle? = null
 
@@ -102,7 +99,7 @@ internal class AndroidMapAdapter(
     if (style == lastBaseStyle) return
     lastBaseStyle = style
     if (styleLoadInFlight != null) {
-      pendingBaseStyle = style
+      pendingBaseStyle = style.takeIf { it != styleLoadInFlight }
       return
     }
     beginStyleLoad(style)
@@ -137,7 +134,6 @@ internal class AndroidMapAdapter(
     mapView.addOnDidFinishLoadingMapListener { callbacks.onMapFinishedLoading(this) }
     mapView.addOnDidFailLoadingMapListener {
       callbacks.onMapFailLoading(it)
-      // Settle the in-flight slot on failure too, or future style changes wedge forever.
       onStyleLoadSettled()
     }
 
