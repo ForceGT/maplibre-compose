@@ -247,9 +247,22 @@ internal class IosMapAdapter(
 
   private fun onStyleLoadSettled() {
     styleLoadInFlight = null
-    val next = pendingBaseStyle ?: return
+    if (pendingBaseStyle == null) return
     pendingBaseStyle = null
-    beginStyleLoad(next)
+    // Deliberately do NOT call beginStyleLoad(next) here. This method runs synchronously
+    // inside the native `didFinishLoadingStyle`/`mapViewDidFinishLoadingMap` delegate
+    // callback, not from IosMapView's `UIKitView` `update` block — the only entry point
+    // SafeStyle's kdoc establishes as "early enough" for content subcomposition to observe
+    // an unload before the next native style transition begins. Calling beginStyleLoad
+    // directly here would unload the SafeStyle this same callback just created via
+    // callbacks.onStyleChanged(this, newStyle) above and immediately start tearing down the
+    // native style again, all before Compose's own recomposition cadence ever gets a chance
+    // to finish applying SymbolLayer/other layer-property updates against it — surfacing as
+    // an uncaught MLNInvalidStyleLayerException from deep inside a layer's native setter
+    // (e.g. SymbolLayer.setIconImage), which Kotlin/Native cannot catch. Instead, forcing a
+    // mismatch against lastBaseStyle makes the *next* setBaseStyle(style) call — driven by
+    // UIKitView's update block, on its established-safe cadence — restart the queued load.
+    lastBaseStyle = null
   }
 
   private var hasReceivedStyleCallback = false
