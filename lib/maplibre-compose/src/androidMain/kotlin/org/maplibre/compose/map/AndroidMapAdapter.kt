@@ -125,9 +125,11 @@ internal class AndroidMapAdapter(
 
   private fun onStyleLoadSettled() {
     styleLoadInFlight = null
-    val next = pendingBaseStyle ?: return
+    if (pendingBaseStyle == null) return
     pendingBaseStyle = null
-    beginStyleLoad(next)
+    // Not beginStyleLoad(next) directly: this runs inside map.setStyle's native callback, not
+    // AndroidView's update block, which SafeStyle's kdoc requires for unload ordering.
+    lastBaseStyle = null
   }
 
   init {
